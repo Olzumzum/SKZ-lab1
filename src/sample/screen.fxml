@@ -49,7 +49,7 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </opaqueInsets>
                 </GridPane>
-                <Button id="load_file_button" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" text="Загрузить файл" />
+                <Button id="load_file_button" fx:id="load_file_button" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" text="Загрузить файл" />
             </children></Pane>
         <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1">
          <children>
@@ -65,39 +65,39 @@
                   <RowConstraints maxHeight="50.400000000000006" minHeight="10.0" prefHeight="48.400000000000006" />
               </rowConstraints>
                <children>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <TextField fx:id="value_00" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <font>
                         <Font size="17.0" />
                      </font></TextField>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <TextField fx:id="value_01" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                  <TextField fx:id="value_02" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                   <TextField fx:id="value_10" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                        <font>
                            <Font size="17.0" />
                        </font></TextField>
-                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                   <TextField fx:id="value_11" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                        <font>
                            <Font size="17.0" />
                        </font></TextField>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="value_12" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                  <TextField fx:id="value_20" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="value_21" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                   <TextField fx:id="value_22" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="17.0" />
                      </font></TextField>
@@ -106,8 +106,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
-            <Button layoutX="60.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 1" />
-            <Button layoutX="164.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 2" />
+            <Button fx:id="filter_one_button" layoutX="60.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 1" />
+            <Button fx:id="filter_two_button" layoutX="164.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 2" />
          </children></Pane>
     </children>
 </GridPane>
