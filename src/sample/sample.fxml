@@ -26,15 +26,15 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" />
                     </rowConstraints>
                     <children>
-                        <ImageView fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="0">
+                        <ImageView id="originmal_image" fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="0">
                             <image>
                                 <Image url="@../../../../Downloads/alena-aenami-chillcowfin.jpg" />
                             </image></ImageView>
-                        <ImageView fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="1">
+                        <ImageView id="first_modified_image" fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
                                 <Image url="@../../../../OneDrive/Рабочий%20стол/mar10day_logo__07-03-18.jpg" />
                             </image></ImageView>
-                        <ImageView fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="2">
+                        <ImageView id="second_modified_image" fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="2">
                             <image>
                                 <Image url="@../../../../OneDrive/Рабочий%20стол/doggie-bmp.png" />
                             </image>
@@ -44,7 +44,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                 </GridPane>
-                <Button layoutX="22.0" layoutY="150.0" mnemonicParsing="false" text="Button" />
+                <Button id="load_file_button" layoutX="22.0" layoutY="150.0" mnemonicParsing="false" text="Загрузить файл" />
             </children></Pane>
         <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1" />
     </children>
