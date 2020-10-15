@@ -17,28 +17,28 @@
     <children>
         <Pane prefHeight="338.0" prefWidth="423.0" GridPane.columnIndex="0">
             <children>
-                <GridPane alignment="CENTER" cacheShape="true" gridLinesVisible="true" layoutX="14.0" layoutY="86.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="126.0" prefWidth="360.0">
+                <GridPane alignment="CENTER" cacheShape="true" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="126.0" prefWidth="360.0">
                     <columnConstraints>
-                        <ColumnConstraints maxWidth="101" minWidth="10.0" prefWidth="103.0" />
-                        <ColumnConstraints maxWidth="101" minWidth="10.0" prefWidth="103.0" />
-                        <ColumnConstraints maxWidth="101" minWidth="0.0" prefWidth="103.0" />
+                        <ColumnConstraints maxWidth="130" minWidth="10.0" prefWidth="120" />
+                        <ColumnConstraints maxWidth="130" minWidth="10.0" prefWidth="120" />
+                        <ColumnConstraints maxWidth="130" minWidth="0.0" prefWidth="120" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="110" minHeight="100" prefHeight="103" />
+                        <RowConstraints maxHeight="130" minHeight="100" prefHeight="120" />
                     </rowConstraints>
                     <children>
-                        <ImageView fx:id="originmal_image" accessibleRoleDescription="оригинал" cache="true" fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="0">
+                        <ImageView fx:id="originmal_image" accessibleRoleDescription="оригинал" cache="true" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="0">
                             <image>
-                                <Image url="@../../../../Downloads/Filtering/Data/unnamed.bmp" />
+                                <Image url="@../res/1.jpg" />
                             </image>
                      </ImageView>
-                        <ImageView fx:id="first_modified_image" fitHeight="96.0" fitWidth="101.0" pickOnBounds="true" GridPane.columnIndex="1">
+                        <ImageView fx:id="first_modified_image" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
-                                <Image url="@../../../../Downloads/Filtering/Data/mar10day_logo__07-03-18.jpg" />
+                                <Image url="@../res/2.jpg" />
                             </image></ImageView>
-                        <ImageView fx:id="second_modified_image" fitHeight="96.0" fitWidth="112.0" pickOnBounds="true" GridPane.columnIndex="2">
+                        <ImageView fx:id="second_modified_image" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="2">
                             <image>
-                                <Image url="@../../../../Downloads/Filtering/Data/doggie-bmp.png" />
+                                <Image url="@../res/3.png" />
                             </image>
                         </ImageView>
                     </children>
@@ -49,11 +49,11 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </opaqueInsets>
                 </GridPane>
-                <Button id="load_file_button" layoutX="36.0" layoutY="256.0" mnemonicParsing="false" text="Загрузить файл" />
+                <Button id="load_file_button" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" text="Загрузить файл" />
             </children></Pane>
         <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1">
          <children>
-            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="28.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300" prefWidth="300">
+            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="69.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="166.0" prefWidth="163.0">
               <columnConstraints>
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
@@ -61,11 +61,43 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" />
-                  <RowConstraints minHeight="10.0" prefHeight="50.0" />
+                  <RowConstraints maxHeight="52.400000000000006" minHeight="10.0" prefHeight="52.400000000000006" />
+                  <RowConstraints maxHeight="50.400000000000006" minHeight="10.0" prefHeight="48.400000000000006" />
               </rowConstraints>
                <children>
                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <font>
+                        <Font size="17.0" />
+                     </font></TextField>
+                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                      <font>
+                          <Font size="17.0" />
+                      </font></TextField>
+                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                      <font>
+                          <Font size="17.0" />
+                      </font></TextField>
+                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                       <font>
+                           <Font size="17.0" />
+                       </font></TextField>
+                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                       <font>
+                           <Font size="17.0" />
+                       </font></TextField>
+                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                      <font>
+                          <Font size="17.0" />
+                      </font></TextField>
+                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                      <font>
+                          <Font size="17.0" />
+                      </font></TextField>
+                  <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                      <font>
+                          <Font size="17.0" />
+                      </font></TextField>
+                   <TextField accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="17.0" />
                      </font></TextField>
@@ -74,6 +106,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
+            <Button layoutX="60.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 1" />
+            <Button layoutX="164.0" layoutY="258.0" mnemonicParsing="false" text="Фильтр 2" />
          </children></Pane>
     </children>
 </GridPane>
