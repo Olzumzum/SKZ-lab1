@@ -64,39 +64,39 @@
                   <RowConstraints maxHeight="50.400000000000006" minHeight="10.0" prefHeight="48.400000000000006" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="value_00" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <TextField fx:id="value00" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="0">
                      <font>
                         <Font size="17.0" />
                      </font></TextField>
-                  <TextField fx:id="value_01" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <TextField fx:id="value01" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField fx:id="value_02" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                  <TextField fx:id="value02" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="0">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                   <TextField fx:id="value_10" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                   <TextField fx:id="value10" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                        <font>
                            <Font size="17.0" />
                        </font></TextField>
-                   <TextField fx:id="value_11" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                   <TextField fx:id="value11" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                        <font>
                            <Font size="17.0" />
                        </font></TextField>
-                  <TextField fx:id="value_12" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="value12" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField fx:id="value_20" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                  <TextField fx:id="value20" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="0" GridPane.rowIndex="2">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                  <TextField fx:id="value_21" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="value21" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                       <font>
                           <Font size="17.0" />
                       </font></TextField>
-                   <TextField fx:id="value_22" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                   <TextField fx:id="value22" accessibleRole="TEXT_FIELD" alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="49.0" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="17.0" />
                      </font></TextField>
