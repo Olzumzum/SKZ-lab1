@@ -1,32 +1,35 @@
 package sample.loaderFile;
 
-import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.List;
+import java.io.IOException;
 
 public final class FileLoader {
     private static FileLoader instance;
+    //оригинал загруженного файла
     private File uploadedFile;
+    //для открытия диалогового окна
+    private static FileChooser fileChooser;
+    //состояние для открытия элементов в родителе
+    private Stage primaryStage;
 
-    private FileLoader(){}
+    private FileLoader() {
+    }
 
-    public static FileLoader getInstance(){
-        if(instance == null){
+    public static FileLoader getInstance() {
+        if (instance == null) {
             instance = new FileLoader();
         }
+        initFileChooser();
         return instance;
     }
 
 
-
-    public File getFile(){
+    public File getFile() {
 //        InputStream inputStream = null;
 //        try {
 //             inputStream = new FileInputStream(uploadedFile);
@@ -37,11 +40,15 @@ public final class FileLoader {
         return uploadedFile;
     }
 
-    @FXML
-    private void build(Stage primaryStage) {
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Document");
+    private static void initFileChooser(){
+        fileChooser = new FileChooser();
+        fileChooser.setInitialDirectory(
+                new File(System.getProperty("user.home"))
+        );
+    }
 
+    private void build() {
+        fileChooser.setTitle("Open Document");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter(
                 "Images",
                 "*.jpg",
@@ -59,8 +66,29 @@ public final class FileLoader {
     }
 
     public void load(Stage primaryStage) {
-        build(primaryStage);
+        this.primaryStage = primaryStage;
+        build();
 
+    }
+
+    /**
+     * сохранить файл
+     * @param bufferedImage
+     */
+    public void saveFile(BufferedImage bufferedImage) {
+        if (bufferedImage != null) {
+
+            File file = fileChooser.showSaveDialog(primaryStage);
+            System.out.println("Файл  " + file);
+            if(file != null) {
+                try {
+                    ImageIO.write(bufferedImage, "bmp", file);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+
+        }
     }
 
 

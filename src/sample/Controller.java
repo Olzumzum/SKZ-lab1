@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -7,7 +8,10 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.loaderFile.FileLoader;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 public class Controller {
     private Stage primaryStage;
@@ -49,7 +53,8 @@ public class Controller {
     public void onClickLoadFile() {
         fileLoader.load(primaryStage);
         originFile = fileLoader.getFile();
-        showImage(originalImage, originFile);
+        if (originFile != null)
+            showImage(originalImage, originFile);
     }
 
 
@@ -79,20 +84,29 @@ public class Controller {
         showImage(secondModifiedImage, convertedFile);
     }
 
+
     @FXML
-    public void onClickSaveButton(){
+    public void onClickSaveButton() {
         saveButton.setText("Saved");
+            Image g = firstModifiedImage.getImage();
+            System.out.println("Изображение создано " + g);
+            if(g != null) {
+                BufferedImage bufferedImage = SwingFXUtils.fromFXImage(g, null);
+                System.out.println("Потоковый файл создан " + bufferedImage);
+                fileLoader.saveFile(bufferedImage);
+            }
     }
 
     /**
      * отобразить изображение в контейнере
+     *
      * @param view - контейнер
      * @param file - изображение
      */
     @FXML
     public void showImage(ImageView view, File file) {
         try {
-            Image image = new Image(file.toURI().toString(),120,120,false,false);
+            Image image = new Image(file.toURI().toString(), 120, 120, false, false);
             System.out.println("Проблема чтения файла " + image);
             view.setImage(image);
             view.setPreserveRatio(true);
