@@ -40,9 +40,13 @@ public class Controller {
     @FXML
     public void showImage(File file) {
         try {
-            Image image = new Image(file.toURI().toString());
+            Image image = new Image(file.toURI().toString(),120,120,false,false);
             System.out.println("Проблема чтения файла " + image);
             originalImage.setImage(image);
+            originalImage.setPreserveRatio(true);
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
 
