@@ -8,6 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.loaderFile.FileLoader;
+import sample.matrix.MatrixProcessing;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -42,7 +43,9 @@ public class Controller {
     //матрица фильтров
     @FXML
     private TextField value00, value01, value02, value10, value11, value12, value20, value21, value22;
-//    private
+
+    //матрица свертки
+    private Set<TextField> setField;
 
     private double[][] matrixFilter = new double[3][3];
 
@@ -57,47 +60,14 @@ public class Controller {
      * получить данные с экрана из таблицы фильтров
      */
     private void getFilterMatrix() {
-        Set<TextField> listField = new HashSet(
+        setField = new HashSet(
                 Arrays.asList(value00, value01, value02, value10, value11, value12, value20, value21, value22)
         );
 
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                String name = "value" + i +j;
-                for (TextField el : listField) {
-                    if(name.compareTo(el.getId()) == 0){
-                        if(!checkMatrix(el))
-                           throw  new NumberFormatException("Ошибка ввода данных в таблицу");
-
-                        matrixFilter[i][j] = Double.parseDouble(el.getText());
-                    }
-                }
-
-            }
-        }
-
-        for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-               System.out.println(matrixFilter[i][j]);
-            }
-        }
+        matrixFilter = MatrixProcessing.getFilterMatrix(setField);
     }
 
-    /**
-     * проверка введеных значений в матрицу
-     * @param field - поле, куда введено значение
-     * @return - флаг, является ли значение поля числовым
-     */
-    private boolean checkMatrix(TextField field){
-            char[] value = field.getText().toCharArray();
-            for(char v: value){
-                if(!Character.isDigit(v)){
-                    if(v != '.')
-                        return false;
-                }
-        }
-        return true;
-    }
+
 
     /**
      * открыть диалоговое окно для выбора изображения для обработки
