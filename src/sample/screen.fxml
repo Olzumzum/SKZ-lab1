@@ -34,11 +34,12 @@
                                    GridPane.columnIndex="0">
 
                      </ImageView>
-                        <ImageView fx:id="first_modified_image" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
+                        <ImageView fx:id="firstModifiedImage"
+                                   fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
                                 <Image url="@../res/2.jpg" />
                             </image></ImageView>
-                        <ImageView fx:id="second_modified_image" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="2">
+                        <ImageView fx:id="secondModifiedImage" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="2">
                             <image>
                                 <Image url="@../res/3.png" />
                             </image>

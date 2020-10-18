@@ -21,48 +21,76 @@ public class Controller {
     //кнопка фильтр 2
     @FXML
     private Button filterTwoButton;
+    //контейнер для отображения оригинального изображения
     @FXML
     private ImageView originalImage;
+    //контейнер для отображения результата 1
+    @FXML
+    private ImageView firstModifiedImage;
+    //контейнер для отображения результата 2
+    @FXML
+    private ImageView secondModifiedImage;
 
     private FileLoader fileLoader = FileLoader.getInstance();
+    private File originFile = null;
 
 
     void setStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * открыть диалоговое окно для выбора изображения для обработки
+     */
     @FXML
     public void onClickLoadFile() {
         fileLoader.load(primaryStage);
-        showImage(fileLoader.getFile());
+        originFile = fileLoader.getFile();
+        showImage(originalImage, originFile);
     }
 
+
+    /**
+     * применить фильтр 1
+     */
     @FXML
-    public void showImage(File file) {
+    public void onClickApplyFilterOne() {
+        filterOneButton.setText("Apply1");
+        // вызов операций фильтрации 1
+        //передаем originFile получаем другой файл
+        // пока заглушка
+        File convertedFile = originFile;
+        showImage(firstModifiedImage, convertedFile);
+    }
+
+    /**
+     * применить фильтр 2
+     */
+    @FXML
+    public void onClickApplyFilterTwo() {
+        filterTwoButton.setText("Apply2");
+        // вызов операций фильтрации 2
+        //передаем originFile получаем другой файл
+        // пока заглушка
+        File convertedFile = originFile;
+        showImage(secondModifiedImage, convertedFile);
+    }
+
+    /**
+     * отобразить изображение в контейнере
+     * @param view - контейнер
+     * @param file - изображение
+     */
+    @FXML
+    public void showImage(ImageView view, File file) {
         try {
             Image image = new Image(file.toURI().toString(),120,120,false,false);
             System.out.println("Проблема чтения файла " + image);
-            originalImage.setImage(image);
-            originalImage.setPreserveRatio(true);
-
-
-
+            view.setImage(image);
+            view.setPreserveRatio(true);
         } catch (Exception e) {
             e.printStackTrace();
 
         }
-
     }
-
-    @FXML
-    public void onClickApplyFilterOne() {
-        filterOneButton.setText("Apply1");
-    }
-
-    @FXML
-    public void onClickApplyFilterTwo() {
-        filterTwoButton.setText("Apply2");
-    }
-
-
 }
