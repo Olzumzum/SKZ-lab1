@@ -14,6 +14,8 @@ public class Main extends Application {
         primaryStage.setTitle("Обработка изображения");
         primaryStage.setScene(new Scene(root, 720, 350));
         primaryStage.show();
+        Controller controller = new Controller();
+        controller.setStage(primaryStage);
     }
 
 
