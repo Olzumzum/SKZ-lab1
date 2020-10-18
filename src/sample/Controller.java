@@ -21,6 +21,9 @@ public class Controller {
     //кнопка фильтр 2
     @FXML
     private Button filterTwoButton;
+    //кнопка сохранения результата обработки
+    @FXML
+    private Button saveButton;
     //контейнер для отображения оригинального изображения
     @FXML
     private ImageView originalImage;
@@ -74,6 +77,11 @@ public class Controller {
         // пока заглушка
         File convertedFile = originFile;
         showImage(secondModifiedImage, convertedFile);
+    }
+
+    @FXML
+    public void onClickSaveButton(){
+        saveButton.setText("Saved");
     }
 
     /**

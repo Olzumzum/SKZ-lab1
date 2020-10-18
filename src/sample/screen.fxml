@@ -27,15 +27,10 @@
                         <RowConstraints maxHeight="130" minHeight="100" prefHeight="120" />
                     </rowConstraints>
                     <children>
-                        <ImageView fx:id="originalImage"
-                                   accessibleRoleDescription="оригинал" cache="true"
-                                   fitHeight="120" fitWidth="120" pickOnBounds="true"
-                                   preserveRatio="true"
-                                   GridPane.columnIndex="0">
+                        <ImageView fx:id="originalImage" accessibleRoleDescription="оригинал" cache="true" fitHeight="120" fitWidth="120" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
 
                      </ImageView>
-                        <ImageView fx:id="firstModifiedImage"
-                                   fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
+                        <ImageView fx:id="firstModifiedImage" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
                                 <Image url="@../res/2.jpg" />
                             </image></ImageView>
@@ -53,6 +48,7 @@
                </opaqueInsets>
                 </GridPane>
                 <Button fx:id="loadFileButton" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickLoadFile" text="Загрузить файл" />
+            <Button fx:id="saveButton" layoutX="188.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickSaveButton" text="Сохранить результат" />
             </children></Pane>
         <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1">
          <children>
