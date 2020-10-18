@@ -27,10 +27,12 @@
                         <RowConstraints maxHeight="130" minHeight="100" prefHeight="120" />
                     </rowConstraints>
                     <children>
-                        <ImageView fx:id="originmal_image" accessibleRoleDescription="оригинал" cache="true" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="0">
-                            <image>
-                                <Image url="@../res/1.jpg" />
-                            </image>
+                        <ImageView fx:id="originalImage"
+                                   accessibleRoleDescription="оригинал" cache="true"
+                                   fitHeight="120" fitWidth="120" pickOnBounds="true"
+                                   preserveRatio="true"
+                                   GridPane.columnIndex="0">
+
                      </ImageView>
                         <ImageView fx:id="first_modified_image" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
@@ -49,8 +51,7 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </opaqueInsets>
                 </GridPane>
-                <Button fx:id="loadFileButton" onAction="#onClickLoadFile"
-                        layoutX="40.0" layoutY="257.0" mnemonicParsing="false" text="Загрузить файл" />
+                <Button fx:id="loadFileButton" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickLoadFile" text="Загрузить файл" />
             </children></Pane>
         <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1">
          <children>
@@ -107,10 +108,8 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
-            <Button fx:id="filterOneButton" layoutX="60.0" layoutY="258.0"
-                    mnemonicParsing="false" text="Фильтр 1" onAction="#onClickApplyFilterOne"/>
-            <Button fx:id="filterTwoButton" layoutX="164.0"
-                    layoutY="258.0" mnemonicParsing="false" text="Фильтр 2" onAction="#onClickApplyFilterTwo"/>
+            <Button fx:id="filterOneButton" layoutX="60.0" layoutY="258.0" mnemonicParsing="false" onAction="#onClickApplyFilterOne" text="Фильтр 1" />
+            <Button fx:id="filterTwoButton" layoutX="164.0" layoutY="258.0" mnemonicParsing="false" onAction="#onClickApplyFilterTwo" text="Фильтр 2" />
          </children></Pane>
     </children>
 </GridPane>

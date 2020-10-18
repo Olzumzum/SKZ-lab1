@@ -1,13 +1,13 @@
 package sample;
 
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import sample.loaderFile.FileLoader;
 
-import java.awt.*;
+import java.io.File;
 
 public class Controller {
     private Stage primaryStage;
@@ -21,25 +21,42 @@ public class Controller {
     //кнопка фильтр 2
     @FXML
     private Button filterTwoButton;
+    @FXML
+    private ImageView originalImage;
+
+    private FileLoader fileLoader = FileLoader.getInstance();
 
 
-
-    void setStage(Stage primaryStage){
+    void setStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
+
     @FXML
-    public void onClickLoadFile(){
-        FileLoader.load(primaryStage);
+    public void onClickLoadFile() {
+        fileLoader.load(primaryStage);
+        showImage(fileLoader.getFile());
+    }
+
+    @FXML
+    public void showImage(File file) {
+        try {
+            Image image = new Image(file.toURI().toString());
+            System.out.println("Проблема чтения файла " + image);
+            originalImage.setImage(image);
+        } catch (Exception e) {
+            e.printStackTrace();
+
+        }
 
     }
 
     @FXML
-    public void onClickApplyFilterOne(){
+    public void onClickApplyFilterOne() {
         filterOneButton.setText("Apply1");
     }
 
     @FXML
-    public void onClickApplyFilterTwo(){
+    public void onClickApplyFilterTwo() {
         filterTwoButton.setText("Apply2");
     }
 
