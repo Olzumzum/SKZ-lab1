@@ -34,6 +34,9 @@ public class FileAdapter {
         return new File(savePath);
     }
 
+    /**
+     * удалить временный файл, созданный отфильтрованным объектом
+     */
     public void deleteTemporaryFile(){
         String savePath = System.getProperty("user.dir") +
                 System.getProperty("file.separator") + "src" + System.getProperty("file.separator") +

@@ -96,33 +96,6 @@ public class Filtration {
         File file = adapter.getFile(pixel.getPixles());
 
 
-//        int s = filteredPixels.length;
-//
-//        byte[] f = new byte[s];
-//
-//        for (int i = 0; i < 13900; i++){                //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 13900
-//            try {
-//              f[i] = (byte) filteredPixels[i].getRGB();
-//            }catch (NullPointerException ex){
-//                System.out.println("I = " + i);
-//            }
-//        }
-//
-//        try {
-//            Path path = Paths.get("C:\\Users\\evdok\\Downloads");
-//            Files.write(path, f);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-
-//        BufferedImage image = new BufferedImage(120, 120, BufferedImage.TYPE_INT_ARGB);
-//
-//        WritableRaster raster = image.getRaster();
-//        raster.setPixels(0, 0, 120, 120, m);
-
         return file;
     }
 
