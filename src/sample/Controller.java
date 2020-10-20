@@ -7,11 +7,13 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import sample.loaderFile.FileLoader;
+import sample.filtration.Filtration;
+import sample.workFiles.FileAdapter;
+import sample.workFiles.FileLoader;
 import sample.matrix.MatrixProcessing;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.io.*;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -68,7 +70,6 @@ public class Controller {
     }
 
 
-
     /**
      * открыть диалоговое окно для выбора изображения для обработки
      */
@@ -89,9 +90,14 @@ public class Controller {
         // вызов операций фильтрации 1
         //передаем originFile получаем другой файл
         // пока заглушка
-        File convertedFile = originFile;
-        if (convertedFile != null)
-            showImage(firstModifiedImage, convertedFile);
+        if (originFile != null) {
+            BufferedImage bufferedImage = SwingFXUtils.fromFXImage(originalImage.getImage(), null);
+            Filtration filtr = new Filtration(bufferedImage);
+
+            File convertedFile = filtr.getFilteredImage(null);
+            if (convertedFile != null)
+                showImage(firstModifiedImage, convertedFile);
+        }
     }
 
     /**
@@ -121,6 +127,8 @@ public class Controller {
             System.out.println("Потоковый файл создан " + bufferedImage);
             fileLoader.saveFile(bufferedImage);
         }
+
+        new FileAdapter().deleteTemporaryFile();
     }
 
     /**

@@ -1,4 +1,4 @@
-package sample.loaderFile;
+package sample.workFiles;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
