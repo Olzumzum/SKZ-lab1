@@ -90,10 +90,9 @@ public class Filtration {
 
     public File getFilteredImage(double[][] convolution) {
         //получить отфильтрованное значение пикселей
-        Color[] filteredPixels = filtration(convolution);
+//        Color[] filteredPixels = filtration(convolution);
 
-        FileAdapter adapter = new FileAdapter();
-        File file = adapter.getFile(pixel.getPixles());
+        File file = new FileAdapter().getFile(pixel.getPixles());
 
 
         return file;
