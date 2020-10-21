@@ -31,6 +31,13 @@ public class Filtration {
             {0.000789, 0.006581, 0.013347, 0.006581, 0.000789}
     };
 
+    private boolean checkConvolution(double[][] convolution){
+
+        for(int i = 0; i < convolution.length; i++){
+
+        }
+    }
+
 //    private double[][] GAUSS = {
 //            {0.111, 0.111, 0.111},
 //            {0.111, 0.111, 0.111},
@@ -53,29 +60,90 @@ public class Filtration {
         //получить размер свертки и окна
         int size = convolution.length;
         //ширина входного изображения
-        int weidth = 0;
+        int width = 0;
         //высота входного изображения
-        int heigth = 0;
+        int height = 0;
 
         if (pixel != null) {
-            weidth = pixel.getWidth();
-            heigth = pixel.getHeight();
+            height = pixel.getWidth();
+            width = pixel.getHeight();
         }
 
         //матрица для отфильтрованного входного изображения
-        int[][] newPixels = new int[weidth][heigth];
+        byte[] inputBytes = b(pixel.getPixels());
+        byte[] outputBytes = new byte[inputBytes.length];
 
-        for (int i = 1; i < heigth; i++) {                                          //!!!!! СДЕЛАТЬ ЧТО-НИБУДЬ С КРАЯМИ
-            for (int j = 1; j < weidth; j++) {
-                //окно - маленькая часть изображения для применения фильтра
-                double[][] w = getWindow(pixels, i, j, size);
+        for (int x = 0; x < width; x++)
+        {
+            for (int y = 0; y < height; y++)
+            {
+                double rSum = 0, gSum = 0, bSum = 0, kSum = 0;
 
-                //получить изменненое значение пикселя
-                newPixels[i][j] = getValueAnchor(w, convolution);
+                for (int i = 0; i < convolution.length; i++)
+                {
+                    for (int j = 0; j < convolution.length; j++)
+                    {
+                        int pixelPosX = x + (i - (convolution.length / 2));
+                        int pixelPosY = y + (j - (convolution.length / 2));
+                        if ((pixelPosX < 0) ||
+                                (pixelPosX >= width) ||
+                                (pixelPosY < 0) ||
+                                (pixelPosY >= height)) continue;
+
+                        byte r = inputBytes[3 * (width * pixelPosY + pixelPosX) + 0];
+                        byte g = inputBytes[3 * (width * pixelPosY + pixelPosX) + 1];
+                        byte b = inputBytes[3 * (width * pixelPosY + pixelPosX) + 2];
+
+                        double kernelVal = convolution[i][j];
+
+                        rSum += r * kernelVal;
+                        gSum += g * kernelVal;
+                        bSum += b * kernelVal;
+
+                        kSum += kernelVal;
+                    }
+                }
+
+                if (kSum <= 0) kSum = 1;
+
+                //Контролируем переполнения переменных
+                rSum /= kSum;
+                if (rSum < 0) rSum = 0;
+                if (rSum > 255) rSum = 255;
+
+                gSum /= kSum;
+                if (gSum < 0) gSum = 0;
+                if (gSum > 255) gSum = 255;
+
+                bSum /= kSum;
+                if (bSum < 0) bSum = 0;
+                if (bSum > 255) bSum = 255;
+
+                //Записываем значения в результирующее изображение
+                outputBytes[3 * (width * y + x) + 0] = (byte)rSum;
+                outputBytes[3 * (width * y + x) + 1] = (byte)gSum;
+                outputBytes[3 * (width * y + x) + 2] = (byte)bSum;
             }
         }
 
+        int[][] newPixels = new int[height][width];
+        for(int i = 0, count = 0; i < height; i++){
+            for (int j = 0; j< width; j++){
+                newPixels[i][j] = outputBytes[count];
+            }
+        }
         return newPixels;
+    }
+
+    byte[] b(int[][] mas){
+        byte[] newMas = new byte[mas.length * mas.length];
+
+        for(int i = 0, count = 0; i < mas.length; i++){
+            for(int j = 0; j < mas.length; j++, count++){
+                newMas[count] = (byte) mas[i][j];
+            }
+        }
+        return newMas;
     }
 
     /**
