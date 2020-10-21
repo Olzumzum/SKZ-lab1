@@ -8,33 +8,33 @@
 
 <GridPane hgap="10" nodeOrientation="LEFT_TO_RIGHT" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <columnConstraints>
-      <ColumnConstraints maxWidth="500.0" minWidth="230.4" prefWidth="400.0" />
-      <ColumnConstraints />
+      <ColumnConstraints maxWidth="1200" minWidth="230.4" prefWidth="700" />
+      <ColumnConstraints maxWidth="400" minWidth="250.0" prefWidth="300" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
    </rowConstraints>
     <children>
-        <Pane prefHeight="338.0" prefWidth="423.0" GridPane.columnIndex="0">
+        <Pane prefHeight="500" prefWidth="600" GridPane.columnIndex="0">
             <children>
-                <GridPane alignment="CENTER" cacheShape="true" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="126.0" prefWidth="360.0">
+                <GridPane alignment="CENTER" cacheShape="true" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="368.0" prefWidth="652.0">
                     <columnConstraints>
-                        <ColumnConstraints maxWidth="130" minWidth="10.0" prefWidth="120" />
-                        <ColumnConstraints maxWidth="130" minWidth="10.0" prefWidth="120" />
-                        <ColumnConstraints maxWidth="130" minWidth="0.0" prefWidth="120" />
+                        <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />
+                        <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />
+                        <ColumnConstraints maxWidth="300" minWidth="0.0" prefWidth="200" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="130" minHeight="100" prefHeight="120" />
+                        <RowConstraints maxHeight="300" minHeight="100" prefHeight="200" />
                     </rowConstraints>
                     <children>
-                        <ImageView fx:id="originalImage" accessibleRoleDescription="оригинал" cache="true" fitHeight="120" fitWidth="120" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
+                        <ImageView fx:id="originalImage" accessibleRoleDescription="оригинал" cache="true" fitHeight="200" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
 
                      </ImageView>
-                        <ImageView fx:id="firstModifiedImage" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="1">
+                        <ImageView fx:id="firstModifiedImage" fitHeight="200" fitWidth="200" pickOnBounds="true" GridPane.columnIndex="1">
                             <image>
                                 <Image url="@../res/2.jpg" />
                             </image></ImageView>
-                        <ImageView fx:id="secondModifiedImage" fitHeight="120" fitWidth="120" pickOnBounds="true" GridPane.columnIndex="2">
+                        <ImageView fx:id="secondModifiedImage" fitHeight="200" fitWidth="200" pickOnBounds="true" GridPane.columnIndex="2">
                             <image>
                                 <Image url="@../res/3.png" />
                             </image>
@@ -47,12 +47,10 @@
                   <Insets bottom="5.0" right="5.0" top="5.0" />
                </opaqueInsets>
                 </GridPane>
-                <Button fx:id="loadFileButton" layoutX="40.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickLoadFile" text="Загрузить файл" />
-            <Button fx:id="saveButton" layoutX="188.0" layoutY="257.0" mnemonicParsing="false" onAction="#onClickSaveButton" text="Сохранить результат" />
             </children></Pane>
-        <Pane prefHeight="208.0" prefWidth="328.0" GridPane.columnIndex="1">
+        <Pane prefHeight="482.0" prefWidth="600.0" GridPane.columnIndex="1">
          <children>
-            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="69.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="166.0" prefWidth="163.0">
+            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="69.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="166.0" prefWidth="163.0">
               <columnConstraints>
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
@@ -105,8 +103,10 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
-            <Button fx:id="filterOneButton" layoutX="60.0" layoutY="258.0" mnemonicParsing="false" onAction="#onClickApplyFilterOne" text="Фильтр 1" />
-            <Button fx:id="filterTwoButton" layoutX="164.0" layoutY="258.0" mnemonicParsing="false" onAction="#onClickApplyFilterTwo" text="Фильтр 2" />
+            <Button fx:id="filterOneButton" layoutX="85.0" layoutY="278.0" mnemonicParsing="false" onAction="#onClickApplyFilterOne" prefHeight="25.0" prefWidth="130.0" text="Фильтр 1" />
+            <Button fx:id="filterTwoButton" layoutX="85.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClickApplyFilterTwo" prefHeight="25.0" prefWidth="130.0" text="Фильтр 2" />
+            <Button fx:id="saveButton" layoutX="85.0" layoutY="400.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="130.0" text="Сохранить результат" />
+                <Button fx:id="loadFileButton" layoutX="85.0" layoutY="357.0" mnemonicParsing="false" onAction="#onClickLoadFile" prefHeight="25.0" prefWidth="130.0" text="Загрузить файл" />
          </children></Pane>
     </children>
 </GridPane>

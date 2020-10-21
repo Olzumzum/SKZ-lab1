@@ -4,15 +4,7 @@ import sample.workFiles.FileAdapter;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Filtration {
     //матрица свертки
@@ -22,7 +14,7 @@ public class Filtration {
     //класс для получения информации о исходном изображении
     private Pixel pixel;
     //матрица пикселей входного изображения
-    private Color[][] pixels;
+    private int[][] pixels;
     //коэффициент нормирования, чтобы средняя интенсивность осталась неизменной
     //div = 1, тк матрица нормированная (это для Гауссовского)
     //div = 0 выставлять нельзя
@@ -50,7 +42,7 @@ public class Filtration {
     public Filtration(BufferedImage inputImage) {
         this.inputImage = inputImage;
         pixel = new Pixel(inputImage);
-        pixels = pixel.getPixles();
+        pixels = pixel.getPixels();
     }
 
     private Color[] filtration(double[][] convolution) {
@@ -66,11 +58,11 @@ public class Filtration {
         int heigth = 0;
 
         if (pixel != null) {
-            weidth = pixel.getWeidth();
-            heigth = pixel.getHeigth();
+            weidth = pixel.getWidth();
+            heigth = pixel.getHeight();
         }
 
-        int newPixelSize = pixel.getHeigth() * pixel.getWeidth();
+        int newPixelSize = pixel.getHeight() * pixel.getWidth();
         Color[] newPixels = new Color[newPixelSize];
 
         int count = 0;
@@ -92,7 +84,7 @@ public class Filtration {
         //получить отфильтрованное значение пикселей
 //        Color[] filteredPixels = filtration(convolution);
 
-        File file = new FileAdapter().getFile(pixel.getPixles());
+        File file = new FileAdapter().getFile(pixel.getPixels());
 
 
         return file;
@@ -137,7 +129,7 @@ public class Filtration {
         //получить пиксели для окна
         for (int k = 0, row = i - step; k < kernelSize; k++) {
             for (int n = 0, col = j - 1; n < kernelSize; n++) {
-                w[k][n] = pixels[row][col++].getRGB();
+                w[k][n] = pixels[row][col++];
 //                System.out.println(w[k][n]);
             }
         }

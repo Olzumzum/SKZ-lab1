@@ -1,31 +1,22 @@
 package sample.workFiles;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.*;
 
 public class FileAdapter {
 
-    String savePath = System.getProperty("user.dir") +
+    private final String SAVE_PATH = System.getProperty("user.dir") +
             System.getProperty("file.separator") + "src" + System.getProperty("file.separator") +
             "res" + System.getProperty("file.separator") + "temporary.jpg";
 
-
-    static BufferedImage image;
-
-
-    public void setImage(BufferedImage image) {
-        FileAdapter.image = image;
-    }
-
-    public File getFile(Color[][] data) {
-        int[] pixels = createPixelArray(image);
-        BufferedImage bufferedImage = createImageFromPixels(pixels, image.getHeight(), image.getWidth());
+    public File getFile(int[][] data) {
+        int[] pixels = createPixelArray(data, data.length, data.length);
+        BufferedImage bufferedImage = createImageFromPixels(pixels, data.length, data.length);
 
         saveBufferedImage(bufferedImage);
 
-        File file = new File(savePath);
+        File file = new File(SAVE_PATH);
 
 
         return file;
@@ -40,15 +31,13 @@ public class FileAdapter {
      * @return массив пикселей, соответствующий входному
      * изобрашению
      */
-    private int[] createPixelArray(BufferedImage image) {
+    private int[] createPixelArray(int[][] image, int width, int height) {
 
-        int width = image.getWidth();
-        int height = image.getHeight();
         int[] pixels = new int[height * width];
 
         for (int row = 0, count = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
-                pixels[count++] = image.getRGB(row, col);
+                pixels[count++] = image[row][col];
             }
 
         }
@@ -93,7 +82,7 @@ public class FileAdapter {
 
     private File saveBufferedImage(BufferedImage bi) {
 
-        File file = new File(savePath);
+        File file = new File(SAVE_PATH);
         try {
             ImageIO.write(bi, "jpg", file);
         } catch (IOException e) {

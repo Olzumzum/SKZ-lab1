@@ -1,6 +1,5 @@
 package sample.filtration;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
@@ -9,50 +8,41 @@ import java.awt.image.BufferedImage;
 public class Pixel {
     //обрабатываемое изображение
     private BufferedImage image;
-    private int weidth;
-    private int heigth;
+    private int width;
+    private int height;
     //матрица пикселей изображения
-    private Color[][] pixles;
+    private int[][] pixels;
 
     public Pixel(BufferedImage image){
         this.image = image;
-        weidth = this.image.getWidth();
-        heigth = this.image.getHeight();
-        pixles = new Color[heigth][weidth];
-        buildMatrix();
+        width = this.image.getWidth();
+        height = this.image.getHeight();
+        pixels = new int[height][width];
+        createPixelArray();
     }
 
-    public Color[][] getPixles(){
-        return pixles;
+    public int[][] getPixels(){
+        return pixels;
     }
 
-    public int getWeidth(){
-        return weidth;
+    public int getWidth(){
+        return width;
     }
 
-    public int getHeigth(){
-        return heigth;
+    public int getHeight(){
+        return height;
     }
 
 
     /**
      * заполнить матрицу пикселей
      */
-    public void buildMatrix(){
-        for(int i = 0; i < heigth; i++){
-            for(int j = 0; j < weidth; j++){
-                Color c = new Color(image.getRGB(j, i));
-                pixles[i][j] = new Color(image.getRGB(i, j));
+    public void createPixelArray(){
+        for (int row = 0, count = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
+                pixels[row][col] = image.getRGB(row, col);
             }
         }
 
-//        for(int i = 0; i < heigth; i++) {
-//            for (int j = 0; j < weidth; j++) {
-//                System.out.println("S.No: "  +
-//                        " Red: " + pixles[i][j].getRed() +
-//                        "  Green: " + pixles[i][j].getGreen() +
-//                        " Blue: " + pixles[i][j].getBlue());
-//            }
-//        }
     }
 }
