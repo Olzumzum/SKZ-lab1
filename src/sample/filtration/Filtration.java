@@ -22,20 +22,20 @@ public class Filtration {
     private double offset = 0;
 
 
-    //тестовая матрица заполненная по Гауссовскому распределению
-//    private double[][] GAUSS = {
-//            {0.000789, 0.006581, 0.013347, 0.006581, 0.000789},
-//            {0.006581, 0.054901, 0.111345, 0.054901, 0.006581},
-//            {0.013347, 0.111345, 0.225821, 0.111345, 0.013347},
-//            {0.006581, 0.054901, 0.111345, 0.054901, 0.006581},
-//            {0.000789, 0.006581, 0.013347, 0.006581, 0.000789}
-//    };
-
+//    тестовая матрица заполненная по Гауссовскому распределению
     private double[][] GAUSS = {
-            {0.111, 0.111, 0.111},
-            {0.111, 0.111, 0.111},
-            {0.111, 0.111, 0.111}
+            {0.000789, 0.006581, 0.013347, 0.006581, 0.000789},
+            {0.006581, 0.054901, 0.111345, 0.054901, 0.006581},
+            {0.013347, 0.111345, 0.225821, 0.111345, 0.013347},
+            {0.006581, 0.054901, 0.111345, 0.054901, 0.006581},
+            {0.000789, 0.006581, 0.013347, 0.006581, 0.000789}
     };
+
+//    private double[][] GAUSS = {
+//            {0.111, 0.111, 0.111},
+//            {0.111, 0.111, 0.111},
+//            {0.111, 0.111, 0.111}
+//    };
 
     public Filtration(BufferedImage inputImage) {
         this.inputImage = inputImage;
@@ -65,8 +65,8 @@ public class Filtration {
         //матрица для отфильтрованного входного изображения
         int[][] newPixels = new int[weidth][heigth];
 
-        for (int i = 1; i < heigth -1 ; i++) {                                          //!!!!! СДЕЛАТЬ ЧТО-НИБУДЬ С КРАЯМИ
-            for (int j = 1; j < weidth -1 ; j++) {
+        for (int i = 1; i < heigth; i++) {                                          //!!!!! СДЕЛАТЬ ЧТО-НИБУДЬ С КРАЯМИ
+            for (int j = 1; j < weidth; j++) {
                 //окно - маленькая часть изображения для применения фильтра
                 double[][] w = getWindow(pixels, i, j, size);
 
@@ -124,11 +124,13 @@ public class Filtration {
 
         int step = kernelSize / 2;
 
+        if (i < step) i++;
+        if(j < step) j++;
+
         //получить пиксели для окна
-        for (int k = 0, row = i - step; k < kernelSize; k++) {
-            for (int n = 0, col = j - 1; n < kernelSize; n++) {
+        for (int k = 0, row = i - step; k < kernelSize && row < pixels.length; k++) {
+            for (int n = 0, col = j - 1; n < kernelSize && col < pixels.length; n++) {
                 w[k][n] = pixels[row][col++];
-//                System.out.println(w[k][n]);
             }
         }
 
