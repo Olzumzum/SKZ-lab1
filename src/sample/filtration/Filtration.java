@@ -13,8 +13,6 @@ public class Filtration {
     private BufferedImage inputImage;
     //класс для получения информации о исходном изображении
     private Pixel pixel;
-    //матрица пикселей входного изображения
-    private int[][] pixels;
     //коэффициент нормирования, чтобы средняя интенсивность осталась неизменной
     //div = 1, тк матрица нормированная (это для Гауссовского)
     //div = 0 выставлять нельзя
@@ -42,13 +40,15 @@ public class Filtration {
     public Filtration(BufferedImage inputImage) {
         this.inputImage = inputImage;
         pixel = new Pixel(inputImage);
-        pixels = pixel.getPixels();
     }
 
-    private Color[] filtration(double[][] convolution) {
+    private int[][] filtration(double[][] convolution) {
         //если не была передана свертка, используем тестовую
         if (convolution == null)
             convolution = GAUSS;
+
+        //матрица пикселей входного изображения
+        int[][] pixels = pixel.getPixels();
 
         //получить размер свертки и окна
         int size = convolution.length;
@@ -62,40 +62,38 @@ public class Filtration {
             heigth = pixel.getHeight();
         }
 
-        int newPixelSize = pixel.getHeight() * pixel.getWidth();
-        Color[] newPixels = new Color[newPixelSize];
-
-        int count = 0;
+        //матрица для отфильтрованного входного изображения
+        int[][] newPixels = new int[weidth][heigth];
 
         for (int i = 1; i < heigth -1 ; i++) {                                          //!!!!! СДЕЛАТЬ ЧТО-НИБУДЬ С КРАЯМИ
             for (int j = 1; j < weidth -1 ; j++) {
                 //окно - маленькая часть изображения для применения фильтра
-                double[][] w = getWindow(i, j, size);
+                double[][] w = getWindow(pixels, i, j, size);
 
                 //получить изменненое значение пикселя
-                newPixels[count++] = new Color(getValueAnchor(w, convolution));
+                newPixels[i][j] = getValueAnchor(w, convolution);
             }
         }
 
         return newPixels;
     }
 
+    /**
+     * вернуть отфильтрованное изображение
+     * @param convolution
+     * @return
+     */
     public File getFilteredImage(double[][] convolution) {
         //получить отфильтрованное значение пикселей
-//        Color[] filteredPixels = filtration(convolution);
-
-        File file = new FileAdapter().getFile(pixel.getPixels());
-
-
+        int[][] filteredImagePixels = filtration(convolution);
+        //передать его на обработку и сохранение
+        File file = new FileAdapter().getFile(filteredImagePixels);
         return file;
     }
-
-
 
     /**
      * Вернуть значение якоря
      * Якорь - центральный пиксель, для которого высчитывается значение
-     *
      * @param w           - окно
      * @param convolution - матрица свертки
      * @return значение пикселя
@@ -115,13 +113,13 @@ public class Filtration {
 
     /**
      * вернуть окно для умножения на свертку
-     *
+     *@param pixels - массив пикселей входного изображения
      * @param i          - строка, с которой начинать получать элементы окна
      * @param j          - столбец, с которого начинать получать элементы окна
      * @param kernelSize - размер окна
      * @return w - вернуть окно
      */
-    private double[][] getWindow(int i, int j, int kernelSize) {
+    private double[][] getWindow(int[][] pixels, int i, int j, int kernelSize) {
         double[][] w = new double[kernelSize][kernelSize];
 
         int step = kernelSize / 2;

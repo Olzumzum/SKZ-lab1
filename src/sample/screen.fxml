@@ -17,7 +17,7 @@
     <children>
         <Pane prefHeight="500" prefWidth="600" GridPane.columnIndex="0">
             <children>
-                <GridPane alignment="CENTER" cacheShape="true" layoutX="40.0" layoutY="88.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="368.0" prefWidth="652.0">
+                <GridPane alignment="CENTER" cacheShape="true" layoutX="34.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="368.0" prefWidth="652.0">
                     <columnConstraints>
                         <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />
                         <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />

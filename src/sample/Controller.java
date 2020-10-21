@@ -93,7 +93,6 @@ public class Controller {
         if (originFile != null) {
             BufferedImage bufferedImage = SwingFXUtils.fromFXImage(originalImage.getImage(), null);
             Filtration filtr = new Filtration(bufferedImage);
-
             File convertedFile = filtr.getFilteredImage(null);
             if (convertedFile != null)
                 showImage(firstModifiedImage, convertedFile);
