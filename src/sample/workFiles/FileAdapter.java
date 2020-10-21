@@ -4,8 +4,6 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileAdapter {
@@ -19,38 +17,35 @@ public class FileAdapter {
 
     public File getFile(Color[][] data) {
 
-        BufferedImage bufferedImage = new BufferedImage(120,120, BufferedImage.TYPE_INT_ARGB);
-//        Graphics2D graphics = bufferedImage.createGraphics();
-//        graphics.setComposite(AlphaComposite.Src);
-//        for (int i = 0, count = 0; i < data.length; i++) {
-//            for (int j = 0; j < data.length; j++){
-//                graphics.setPaint(data[i][j]);
-//                graphics.fillRect ( 0, 0, 120, 120 );
-//            }
-//        }
+        BufferedImage bufferedImage = createImageFromPixels(image);
 
+        saveBufferedImage(bufferedImage);
 
-
-        writeBufferedImage(image);
-
-//        byte[]bDate = new byte[data.length * data.length];
-//        for (int i = 0, count = 0; i < data.length; i++) {
-//            for (int j = 0; j < data.length; j++){
-//                bDate[count++] = (byte) data[i][j].getRGB();
-//            }
-//        }
-//
-//        try {
-//            FileOutputStream fos = new FileOutputStream(savePath);
-//            fos.write(bDate);
-//            fos.flush();
-//            fos.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
         return null;
+    }
+
+    /**
+     * создать изображение на основе полученного
+     * @param image
+     * @return
+     */
+    private BufferedImage createImageFromPixels(BufferedImage image){
+        BufferedImage bufferedImage = new BufferedImage(120,120, BufferedImage.TYPE_INT_RGB);
+
+        int width = image.getWidth();
+        int height = image.getHeight();
+        int[] result = new int[height * width];
+
+        int count = 0;
+        for (int row = 0; row < height; row++) {
+            for (int col = 0; col < width; col++) {
+                result[count] = image.getRGB(row, col);
+                bufferedImage.setRGB(row, col, result[count]);
+            }
+            count++;
+        }
+
+        return bufferedImage;
     }
 
     /**
@@ -70,7 +65,7 @@ public class FileAdapter {
         }
     }
 
-    private File writeBufferedImage(BufferedImage bi){
+    private File saveBufferedImage(BufferedImage bi){
         String savePath = System.getProperty("user.dir") +
                 System.getProperty("file.separator") + "src" + System.getProperty("file.separator") +
                 "res" + System.getProperty("file.separator") + "temporary.jpg" ;
