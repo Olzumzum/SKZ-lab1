@@ -63,7 +63,7 @@ public class Filtration {
             convolution = GAUSS;
 
         //матрица пикселей входного изображения
-        byte[][] pixels = pixel.getPixels();
+        byte[] pixels = pixel.getPixels();
 
         //получить размер свертки и окна
         int sizeConv = convolution.length;
@@ -77,33 +77,10 @@ public class Filtration {
             heigth = pixel.getHeight();
         }
 
-        byte[][] inputMass = pixels;
-
-        //матрица для отфильтрованного входного изображения
-        byte[][] newPixels = new byte[weidth][heigth];
-
-        for (int i = 0; i < heigth; i++) {
-            for (int j = 0; j < weidth; j++) {
-                //если это не пиксели у грани
-                if ((i - (sizeConv / 2) >= 0 && i + (sizeConv / 2) <= pixels.length) &&
-                        (j - (sizeConv / 2) >= 0 && j + (sizeConv / 2) <= pixels.length)) {
-                //окно - маленькая часть изображения для применения фильтра
-                    byte[][] w = getWindow(inputMass, i, j, sizeConv);
-
-                //получить изменненое значение пикселя
-                newPixels[i][j] = getValueAnchor(w, convolution);
-            } else {
-                    newPixels[i][j] = inputMass[i][j];
-                }
-            }
+        for(int i = 0; i < pixels.length; i++){
 
         }
 
-        for(int i = 0; i < newPixels.length; i++){
-            for(int j = 0; j < newPixels.length; j++){
-                pixels[i][j] = (byte) newPixels[i][j];
-            }
-        }
         return newPixels;
     }
 
@@ -160,7 +137,7 @@ public class Filtration {
      * @param kernelSize - размер окна
      * @return w - вернуть окно
      */
-    private byte[][] getWindow(byte[][] pixels, int i, int j, int kernelSize) {
+    private byte[][] getWindow(byte[] pixels, int i, int j, int kernelSize) {
         byte[][] w = new byte[kernelSize][kernelSize];
 
         int step = kernelSize / 2;
