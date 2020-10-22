@@ -57,7 +57,7 @@ public class Filtration {
         }
     }
 
-    private int[][] filtration(double[][] convolution) {
+    private double[][] filtration(double[][] convolution) {
         //если не была передана свертка, используем тестовую
         if (convolution == null)
             convolution = GAUSS;
@@ -77,10 +77,13 @@ public class Filtration {
             heigth = pixel.getHeight();
         }
 
-        byte[][] inputMass = trans(pixels);
+
+
+//        int[][] inputMass = trans(pixels);
+//        f(inputMass);
 
         //матрица для отфильтрованного входного изображения
-        byte[][] newPixels = new byte[weidth][heigth];
+        double[][] newPixels = new double[weidth][heigth];
 
         for (int i = 0; i < heigth; i++) {
             for (int j = 0; j < weidth; j++) {
@@ -88,23 +91,23 @@ public class Filtration {
                 if ((i - (sizeConv / 2) >= 0 && i + (sizeConv / 2) <= pixels.length) &&
                         (j - (sizeConv / 2) >= 0 && j + (sizeConv / 2) <= pixels.length)) {
                 //окно - маленькая часть изображения для применения фильтра
-                    byte[][] w = getWindow(inputMass, i, j, sizeConv);
+                    double[][] w = getWindow(pixels, i, j, sizeConv);
 
                 //получить изменненое значение пикселя
                 newPixels[i][j] = getValueAnchor(w, convolution);
             } else {
-                    newPixels[i][j] = inputMass[i][j];
+                    newPixels[i][j] = pixels[i][j];
                 }
             }
 
         }
 
-        for(int i = 0; i < newPixels.length; i++){
-            for(int j = 0; j < newPixels.length; j++){
-                pixels[i][j] = (byte) newPixels[i][j];
-            }
-        }
-        return pixels;
+//        for(int i = 0; i < newPixels.length; i++){
+//            for(int j = 0; j < newPixels.length; j++){
+//                pixels[i][j] = (byte) inputMass[i][j];
+//            }
+//        }
+        return newPixels;
     }
 
     private byte[][] trans(int[][] date){
@@ -126,7 +129,7 @@ public class Filtration {
      */
     public File getFilteredImage(double[][] convolution) {
         //получить отфильтрованное значение пикселей
-        int[][] filteredImagePixels = filtration(convolution);
+        double[][] filteredImagePixels = filtration(convolution);
         //передать его на обработку и сохранение
         File file = new FileAdapter().getFile(filteredImagePixels);
         return file;
@@ -139,16 +142,16 @@ public class Filtration {
      * @param convolution - матрица свертки
      * @return значение пикселя
      */
-    private byte getValueAnchor(byte[][] w, double[][] convolution) {
+    private double getValueAnchor(double[][] w, double[][] convolution) {
         //умножаем окно на свертку, складываем результат, записываем в пиксель
-        byte sum = 0;
+        double sum = 0;
         for (int k = 0; k < convolution.length; k++) {
             for (int n = 0; n < convolution.length; n++) {
                 sum += w[k][n] * convolution[k][n];
             }
         }
 
-        byte resultValuePixel = (byte) (sum * (1 / div));
+        double resultValuePixel = (sum * (1 / div));
         return resultValuePixel;
     }
 
@@ -160,8 +163,8 @@ public class Filtration {
      * @param kernelSize - размер окна
      * @return w - вернуть окно
      */
-    private byte[][] getWindow(byte[][] pixels, int i, int j, int kernelSize) {
-        byte[][] w = new byte[kernelSize][kernelSize];
+    private double[][] getWindow(int[][] pixels, int i, int j, int kernelSize) {
+        double[][] w = new double[kernelSize][kernelSize];
 
         int step = kernelSize / 2;
 
@@ -177,6 +180,13 @@ public class Filtration {
         }
 
         return w;
+    }
+
+    void f(byte[][] mas){
+        for(int i = 0; i <mas.length; i++){
+            for(int j = 0; j < mas.length; j++)
+            System.out.println("element " + mas[i][j]);
+        }
     }
 
 
