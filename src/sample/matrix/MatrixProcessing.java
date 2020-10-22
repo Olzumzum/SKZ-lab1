@@ -16,7 +16,7 @@ public class MatrixProcessing {
         char[] value = field.getText().toCharArray();
         for (char v : value) {
             if (!Character.isDigit(v)) {
-                if (v != '.')
+                if (v != '.' && v != '-')
                     return false;
             }
         }
@@ -36,7 +36,6 @@ public class MatrixProcessing {
                     if (name.compareTo(el.getId()) == 0) {
                         if (!checkMatrix(el))
                             throw new NumberFormatException("Ошибка ввода данных в таблицу");
-
                         matrixFilter[i][j] = Double.parseDouble(el.getText());
                     }
                 }
@@ -46,5 +45,7 @@ public class MatrixProcessing {
 
         return matrixFilter;
     }
+
+
 
 }
