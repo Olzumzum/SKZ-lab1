@@ -31,15 +31,16 @@ public class Filtration {
 //    };
 
     private double[][] GAUSS = {
-            {0.111, 0.111, 0.111},
-            {0.111, 0.111, 0.111},
-            {0.111, 0.111, 0.111}
+            {0, 0, 0},
+            {0, 1, 0},
+            {0, 0, 0}
     };
 
     public Filtration(BufferedImage inputImage) {
         this.inputImage = inputImage;
         pixel = new Pixel(inputImage);
     }
+
 
     private void checkConvolution(double[][] convolution) {
         double sum = 0;

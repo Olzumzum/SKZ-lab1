@@ -93,7 +93,8 @@ public class Controller {
         if (originFile != null) {
             BufferedImage bufferedImage = SwingFXUtils.fromFXImage(originalImage.getImage(), null);
             Filtration filtr = new Filtration(bufferedImage);
-            File convertedFile = filtr.getFilteredImage(null);
+
+            File convertedFile = filtr.getFilteredImage(matrixFilter);
             if (convertedFile != null)
                 showImage(firstModifiedImage, convertedFile);
         }
@@ -139,7 +140,7 @@ public class Controller {
     @FXML
     public void showImage(ImageView view, File file) {
         try {
-            Image image = new Image(file.toURI().toString(), 120, 120, false, false);
+            Image image = new Image(file.toURI().toString(), 320, 320, false, false);
             System.out.println("Проблема чтения файла " + image);
             view.setImage(image);
             view.setPreserveRatio(true);

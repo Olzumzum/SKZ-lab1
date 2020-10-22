@@ -15,30 +15,31 @@
       <RowConstraints />
    </rowConstraints>
     <children>
-        <Pane prefHeight="500" prefWidth="600" GridPane.columnIndex="0">
+        <Pane prefHeight="505.0" prefWidth="823.0" GridPane.columnIndex="0">
             <children>
                 <GridPane alignment="CENTER" cacheShape="true" layoutX="34.0" layoutY="66.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="368.0" prefWidth="652.0">
                     <columnConstraints>
-                        <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />
-                        <ColumnConstraints maxWidth="300" minWidth="10.0" prefWidth="200" />
-                        <ColumnConstraints maxWidth="300" minWidth="0.0" prefWidth="200" />
+                        <ColumnConstraints maxWidth="500.0" minWidth="10.0" prefWidth="330.0" />
+                        <ColumnConstraints maxWidth="500.0" minWidth="10.0" prefWidth="293.2" />
+                        <ColumnConstraints maxWidth="500.0" minWidth="0.0" prefWidth="113.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints maxHeight="300" minHeight="100" prefHeight="200" />
+                        <RowConstraints maxHeight="500" minHeight="100" prefHeight="700" />
                     </rowConstraints>
                     <children>
-                        <ImageView fx:id="originalImage" accessibleRoleDescription="оригинал" cache="true" fitHeight="200" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
+                        <ImageView fx:id="originalImage" accessibleRoleDescription="оригинал" cache="true" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="0">
 
                      </ImageView>
-                        <ImageView fx:id="firstModifiedImage" fitHeight="200" fitWidth="200" pickOnBounds="true" GridPane.columnIndex="1">
-                            <image>
-                                <Image url="@../res/2.jpg" />
-                            </image></ImageView>
-                        <ImageView fx:id="secondModifiedImage" fitHeight="200" fitWidth="200" pickOnBounds="true" GridPane.columnIndex="2">
-                            <image>
-                                <Image url="@../res/3.png" />
-                            </image>
+                        <ImageView fx:id="firstModifiedImage" pickOnBounds="true" GridPane.columnIndex="1">
+<!--                            <image>-->
+<!--                                <Image url="@../res/2.jpg" />-->
+<!--                            </image>-->
                         </ImageView>
+<!--                        <ImageView fx:id="secondModifiedImage" fitHeight="200" fitWidth="200" pickOnBounds="true" GridPane.columnIndex="2">-->
+<!--                            <image>-->
+<!--                                <Image url="@../res/3.png" />-->
+<!--                            </image>-->
+<!--                        </ImageView>-->
                     </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
