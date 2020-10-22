@@ -57,13 +57,13 @@ public class Filtration {
         }
     }
 
-    private int[][] filtration(double[][] convolution) {
+    private byte[][] filtration(double[][] convolution) {
         //если не была передана свертка, используем тестовую
         if (convolution == null)
             convolution = GAUSS;
 
         //матрица пикселей входного изображения
-        int[][] pixels = pixel.getPixels();
+        byte[][] pixels = pixel.getPixels();
 
         //получить размер свертки и окна
         int sizeConv = convolution.length;
@@ -77,7 +77,7 @@ public class Filtration {
             heigth = pixel.getHeight();
         }
 
-        byte[][] inputMass = trans(pixels);
+        byte[][] inputMass = pixels;
 
         //матрица для отфильтрованного входного изображения
         byte[][] newPixels = new byte[weidth][heigth];
@@ -104,7 +104,7 @@ public class Filtration {
                 pixels[i][j] = (byte) newPixels[i][j];
             }
         }
-        return pixels;
+        return newPixels;
     }
 
     private byte[][] trans(int[][] date){
@@ -126,7 +126,7 @@ public class Filtration {
      */
     public File getFilteredImage(double[][] convolution) {
         //получить отфильтрованное значение пикселей
-        int[][] filteredImagePixels = filtration(convolution);
+        byte[][] filteredImagePixels = filtration(convolution);
         //передать его на обработку и сохранение
         File file = new FileAdapter().getFile(filteredImagePixels);
         return file;

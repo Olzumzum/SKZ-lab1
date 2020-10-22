@@ -10,8 +10,8 @@ public class FileAdapter {
             System.getProperty("file.separator") + "src" + System.getProperty("file.separator") +
             "res" + System.getProperty("file.separator") + "temporary.jpg";
 
-    public File getFile(int[][] data) {
-        int[] pixels = createPixelArray(data, data.length, data.length);
+    public File getFile(byte[][] data) {
+        byte[] pixels = createPixelArray(data, data.length, data.length);
         BufferedImage bufferedImage = createImageFromPixels(pixels, data.length, data.length);
 
         saveBufferedImage(bufferedImage);
@@ -31,9 +31,9 @@ public class FileAdapter {
      * @return массив пикселей, соответствующий входному
      * изобрашению
      */
-    private int[] createPixelArray(int[][] image, int width, int height) {
+    private byte[] createPixelArray(byte[][] image, int width, int height) {
 
-        int[] pixels = new int[height * width];
+        byte[] pixels = new byte[height * width];
 
         for (int row = 0, count = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
@@ -51,7 +51,7 @@ public class FileAdapter {
      * @param width = ширина итогового изображения
      * @return
      */
-    private BufferedImage createImageFromPixels(int[] pixels, int height, int width) {
+    private BufferedImage createImageFromPixels(byte[] pixels, int height, int width) {
         BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         for (int row = 0, count = 0; row < height; row++) {
             for (int col = 0; col < width; col++) {
