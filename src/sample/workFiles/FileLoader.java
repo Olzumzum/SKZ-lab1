@@ -82,7 +82,7 @@ public final class FileLoader {
             System.out.println("Файл  " + file);
             if(file != null) {
                 try {
-                    ImageIO.write(bufferedImage, "bmp", file);
+                    ImageIO.write(bufferedImage, "jpg", file);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
