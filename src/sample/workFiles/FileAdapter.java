@@ -16,10 +16,7 @@ public class FileAdapter {
 
         saveBufferedImage(bufferedImage);
 
-        File file = new File(SAVE_PATH);
-
-
-        return file;
+        return new File(SAVE_PATH);
     }
 
 

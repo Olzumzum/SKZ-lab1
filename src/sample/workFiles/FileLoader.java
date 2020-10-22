@@ -30,13 +30,6 @@ public final class FileLoader {
 
 
     public File getFile() {
-//        InputStream inputStream = null;
-//        try {
-//             inputStream = new FileInputStream(uploadedFile);
-//        } catch (FileNotFoundException e) {
-//            System.out.println("Проблема чтения файла " + uploadedFile.getName());
-//            e.printStackTrace();
-//        }
         return uploadedFile;
     }
 

@@ -7,11 +7,11 @@ import java.awt.image.BufferedImage;
  */
 public class Pixel {
     //обрабатываемое изображение
-    private BufferedImage image;
-    private int width;
-    private int height;
+    private final BufferedImage image;
+    private final int width;
+    private final int height;
     //матрица пикселей изображения
-    private int[][] pixels;
+    private final int[][] pixels;
 
     public Pixel(BufferedImage image){
         this.image = image;

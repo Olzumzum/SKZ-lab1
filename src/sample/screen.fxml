@@ -51,7 +51,8 @@
             </children></Pane>
         <Pane prefHeight="482.0" prefWidth="600.0" GridPane.columnIndex="1">
          <children>
-            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="69.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="166.0" prefWidth="163.0">
+            <GridPane alignment="CENTER" gridLinesVisible="true" layoutX="69.0" layoutY="65.0"
+                      maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="166.0" prefWidth="163.0">
               <columnConstraints>
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
                 <ColumnConstraints minWidth="40.0" prefWidth="50.0" />
@@ -104,10 +105,10 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </GridPane>
-            <Button fx:id="filterOneButton" layoutX="85.0" layoutY="278.0" mnemonicParsing="false" onAction="#onClickApplyFilterOne" prefHeight="25.0" prefWidth="130.0" text="Фильтр 1" />
-            <Button fx:id="filterTwoButton" layoutX="85.0" layoutY="320.0" mnemonicParsing="false" onAction="#onClickApplyFilterTwo" prefHeight="25.0" prefWidth="130.0" text="Фильтр 2" />
-            <Button fx:id="saveButton" layoutX="85.0" layoutY="400.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="130.0" text="Сохранить результат" />
-                <Button fx:id="loadFileButton" layoutX="85.0" layoutY="357.0" mnemonicParsing="false" onAction="#onClickLoadFile" prefHeight="25.0" prefWidth="130.0" text="Загрузить файл" />
+            <Button fx:id="filterOneButton" layoutX="69.0" layoutY="281.0"
+                    mnemonicParsing="false" onAction="#onClickApplyFilterOne" prefHeight="25.0" prefWidth="163.0" text="Фильтр" />
+            <Button fx:id="saveButton" layoutX="69.0" layoutY="401.0" mnemonicParsing="false" onAction="#onClickSaveButton" prefHeight="25.0" prefWidth="163.0" text="Сохранить результат" />
+                <Button fx:id="loadFileButton" layoutX="69.0" layoutY="356.0" mnemonicParsing="false" onAction="#onClickLoadFile" prefHeight="25.0" prefWidth="163.0" text="Загрузить файл" />
          </children></Pane>
     </children>
 </GridPane>

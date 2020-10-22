@@ -46,12 +46,9 @@ public class Controller {
     @FXML
     private TextField value00, value01, value02, value10, value11, value12, value20, value21, value22;
 
-    //матрица свертки
-    private Set<TextField> setField;
-
     private double[][] matrixFilter = new double[3][3];
 
-    private FileLoader fileLoader = FileLoader.getInstance();
+    private final FileLoader fileLoader = FileLoader.getInstance();
     private File originFile = null;
 
     void setStage(Stage primaryStage) {
@@ -62,7 +59,8 @@ public class Controller {
      * получить данные с экрана из таблицы фильтров
      */
     private void getFilterMatrix() {
-        setField = new HashSet(
+        //матрица свертки
+        Set<TextField> setField = new HashSet(
                 Arrays.asList(value00, value01, value02, value10, value11, value12, value20, value21, value22)
         );
 
@@ -89,7 +87,6 @@ public class Controller {
         getFilterMatrix();
         // вызов операций фильтрации 1
         //передаем originFile получаем другой файл
-        // пока заглушка
         if (originFile != null) {
             BufferedImage bufferedImage = SwingFXUtils.fromFXImage(originalImage.getImage(), null);
             Filtration filtr = new Filtration(bufferedImage);
@@ -141,7 +138,6 @@ public class Controller {
     public void showImage(ImageView view, File file) {
         try {
             Image image = new Image(file.toURI().toString(), 320, 320, false, false);
-            System.out.println("Проблема чтения файла " + image);
             view.setImage(image);
             view.setPreserveRatio(true);
         } catch (Exception e) {
